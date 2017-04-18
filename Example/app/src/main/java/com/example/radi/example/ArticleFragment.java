@@ -24,6 +24,7 @@ public class ArticleFragment extends Fragment {
         final Bundle args = new Bundle();
         args.putString(ARGUMENT_NAME, name);
         final ArticleFragment fragment = new ArticleFragment();
+        fragment.fragName = name;
         fragment.setArguments(args);
         return fragment;
     }
@@ -43,7 +44,7 @@ public class ArticleFragment extends Fragment {
         });
 
         setRetainInstance(true);
-        final Bundle args = getArguments();
+        // final Bundle args = getArguments();
         // setText(args.getString(ARGUMENT_NAME));
         setText(fragName);
         return view;

@@ -5,8 +5,20 @@
 
     <string name="text_blank_fragment"> Blank Fragment </string>
     <string name="text_article_fragment"> Article Fragment </string>
+    <string name="format_tab_selected">  Tab selected %1$d </string>
 
     <string name="button_left_fragment"> Left Fragment </string>
     <string name="button_right_fragment">  Right Fragment </string>
     <string name="button_hit_fragment"> Fragment hit </string>
+    <string name="button_fragment_tabs"> Fragment tabs </string>
+
+    <string name="text_save_entry_placeholder"> Enter some input </string>
+    <string name="key_save_data_entry">key_saved_entry</string>
+    <string name="button_open_save_activity"> Saving data </string>
+    <string name="button_save_entry"> Save </string>
+    <string name="button_load_entry"> Load </string>
+    <string name="button_clear_entry"> Clear </string>
+
+
+    <string name="button_no_action"> No Action </string>
 </resources>

@@ -34,4 +34,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FragmentsActivity.class);
         startActivity(intent);
     }
+
+    public void onShowTabs(View view) {
+        Intent intent = new Intent(this, FragmentTabsActivity.class);
+        startActivity(intent);
+    }
+
+    public void onShowSave(View view) {
+        Intent intent = new Intent(this, SaveDataActivity.class);
+        startActivity(intent);
+    }
 }
