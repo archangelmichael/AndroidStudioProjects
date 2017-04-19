@@ -3,11 +3,10 @@ package com.example.radi.example;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.ContactsContract;
-import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Make sure we're running on Honeycomb or higher to use ActionBar APIs
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-
+            System.out.println("HONEYCOMB");
         }
     }
 
@@ -61,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // OPEN CONTACTS
     static final int PICK_CONTACT_REQUEST = 1;  // The request code
 
     public void onShowPickContact(View view) {
@@ -80,14 +80,56 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    // REQUEST PERMISSIONS
+    static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
+
     public void onCheckPermission(View view) {
-        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR);
-        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CONTACTS);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            System.out.println(" Permission denied! ");
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_CONTACTS)) {
+                System.out.println(" Request permission! ");
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+            }
+            else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        new String[]{ Manifest.permission.WRITE_CONTACTS },
+                        MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+            }
+        }
+        else {
             System.out.println(" Permission granted! ");
         }
-        else if (permissionCheck == PackageManager.PERMISSION_DENIED) {
-            System.out.println(" Permission denied! ");
-        }
+    }
 
+    @Override
+
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[],
+                                           int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    System.out.println(" Permission granted! ");
+                }
+                else {
+                    System.out.println(" Permission denied! ");
+                }
+
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 }
