@@ -27,7 +27,7 @@
         </activity>
         <activity android:name=".FragmentsActivity" />
         <activity android:name=".FragmentTabsActivity" />
-        <activity android:name=".SaveDataActivity"></activity>
+        <activity android:name=".SaveDataActivity" />
     </application>
 
 </manifest>

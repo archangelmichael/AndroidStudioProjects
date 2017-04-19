@@ -63,7 +63,6 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/buttonShowFragments"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
@@ -71,7 +70,6 @@
                 android:text="@string/button_hit_fragment" />
 
             <Button
-                android:id="@+id/buttonShowTabs"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
@@ -79,12 +77,32 @@
                 android:text="@string/button_fragment_tabs" />
 
             <Button
-                android:id="@+id/buttonShowSaveActivity"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:onClick="onShowSave"
                 android:text="@string/button_open_save_activity" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:onClick="onShowShareOptions"
+                android:text="@string/button_open_share_actions" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:onClick="onShowPickContact"
+                android:text="@string/button_open_pick_contact" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:onClick="onCheckPermission"
+                android:text="@string/button_check_permission" />
 
             <Button
                 android:id="@+id/buttonNew"

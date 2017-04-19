@@ -19,6 +19,12 @@
     <string name="button_load_entry"> Load </string>
     <string name="button_clear_entry"> Clear </string>
 
+    <string name="button_open_share_actions"> Share </string>
+    <string name="text_share_actions"> Share with </string>
+
+    <string name="button_open_pick_contact"> Pick contact </string>
+
+    <string name="button_check_permission"> Check contacts permission </string>
 
     <string name="button_no_action"> No Action </string>
 </resources>
