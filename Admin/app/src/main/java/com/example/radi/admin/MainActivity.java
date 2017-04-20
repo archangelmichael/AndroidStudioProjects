@@ -1,16 +1,12 @@
 package com.example.radi.admin;
 
 import android.bluetooth.BluetoothAdapter;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,14 +21,15 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-
     private void setButtonText(String text) {
         TextView tvOutput = (TextView) findViewById(R.id.tvResult);
         tvOutput.setText(text);
     }
 
-    // BLUETOOTH ACTIONS
-    public void onCheckBluetooth(View view) {
+    // REQUIRES
+    // <uses-permission android:name="android.permission.BLUETOOTH"/>
+    // <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    public void onChangeBluetooth(View view) {
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter != null) {
             if (mBluetoothAdapter.isEnabled()) {
@@ -44,5 +41,25 @@ public class MainActivity extends AppCompatActivity {
                 setButtonText("Bluetooth on");
             }
         }
+    }
+
+    // REQUIRES
+    // <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    // <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    public void onChangeWifi(View view) {
+        WifiManager wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if (wifi.isWifiEnabled()) {
+            wifi.setWifiEnabled(false);
+        }
+        else {
+            wifi.setWifiEnabled(true);
+        }
+    }
+
+    // REQUIRES
+    // <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    // <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    public void onChangeAdmin(View view) {
+
     }
 }

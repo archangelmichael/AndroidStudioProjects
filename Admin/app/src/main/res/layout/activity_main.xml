@@ -16,7 +16,19 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onCheckBluetooth"
-        android:text="@string/btn_check_bluetooth" />
+        android:onClick="onChangeBluetooth"
+        android:text="@string/btn_change_bluetooth" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onChangeWifi"
+        android:text="@string/btn_change_wifi" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onChangeAdmin"
+        android:text="@string/btn_change_admin" />
 
 </LinearLayout>

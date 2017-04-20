@@ -5,12 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.view.ContextThemeWrapper;
 import android.widget.Toast;
-
-/**
- * Created by radi on 4/20/17.
- */
 
 public class BluetoothReceiver extends BroadcastReceiver {
     public static final String BLUETOOTH_PREFERENCES = "bluetooth_preferences";

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Admin</string>
-    <string name="btn_check_bluetooth"> Check Bluetooth </string>
+
+
+    <string name="btn_change_bluetooth"> CHANGE BLUETOOTH STATE </string>
+    <string name="btn_change_wifi"> CHANGE WIFI STATE </string>
+    <string name="btn_change_admin"> CHANGE ADMIN STATE </string>
 </resources>
