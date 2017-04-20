@@ -14,59 +14,15 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    private boolean bluetoothOn = false;
-    private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
-    private final BroadcastReceiver btReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            final String action = intent.getAction();
-
-            if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
-                final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
-                        BluetoothAdapter.ERROR);
-                switch (state) {
-                    case BluetoothAdapter.STATE_OFF:
-                        setButtonText("Bluetooth off");
-                        break;
-                    case BluetoothAdapter.STATE_TURNING_OFF:
-                        setButtonText("Turning Bluetooth off...");
-                        if (bluetoothOn) {
-                            enableBluetooth(true);
-                        }
-                        break;
-                    case BluetoothAdapter.STATE_ON:
-                        setButtonText("Bluetooth on");
-                        break;
-                    case BluetoothAdapter.STATE_TURNING_ON:
-                        setButtonText("Turning Bluetooth on...");
-                        if (!bluetoothOn) {
-                            enableBluetooth(false);
-                        }
-                        break;
-                }
-            }
-        }
-    };
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Register for broadcasts on BluetoothAdapter state change
-        IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-        registerReceiver(btReceiver, filter);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        // Unregister broadcast listeners
-        unregisterReceiver(btReceiver);
     }
 
 
@@ -75,32 +31,18 @@ public class MainActivity extends AppCompatActivity {
         tvOutput.setText(text);
     }
 
-
     // BLUETOOTH ACTIONS
     public void onCheckBluetooth(View view) {
-        if (mBluetoothAdapter == null) {
-            System.out.println("Device has no bluetooth");
-        }
-        else {
-            if (mBluetoothAdapter.isEnabled()) { // Disable it
-                enableBluetooth(false);
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (mBluetoothAdapter != null) {
+            if (mBluetoothAdapter.isEnabled()) {
+                BluetoothReceiver.setBluetoothState(this.getApplicationContext(), false);
+                setButtonText("Bluetooth off");
             }
-            else { // Enable it
-                enableBluetooth(true);
+            else {
+                BluetoothReceiver.setBluetoothState(this.getApplicationContext(), true);
+                setButtonText("Bluetooth on");
             }
-        }
-    }
-
-    private void enableBluetooth (boolean enable) {
-        if (enable) {
-            mBluetoothAdapter.enable();
-            bluetoothOn = true;
-            setButtonText("Bluetooth on");
-        }
-        else {
-            mBluetoothAdapter.disable();
-            bluetoothOn = false;
-            setButtonText("Bluetooth off");
         }
     }
 }
