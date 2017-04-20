@@ -3,10 +3,12 @@ package com.example.radi.admin;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.net.wifi.WifiManager;
+import android.os.BatteryManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
     // REQUIRES
     // <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     // <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    public void onChangeAdmin(View view) {
-
+    public void onCheckBattery(View view) {
+        int batLevel = BatteryLevelReceiver.getBatteryPercentage(getApplicationContext());
+        String batteryPercentage = String.format(" BATTERY LEVEL : %d", batLevel);
+        Toast.makeText(getApplicationContext(), batteryPercentage, Toast.LENGTH_SHORT).show();
     }
 }
