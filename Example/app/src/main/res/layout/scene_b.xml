@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/scene_container">
+    android:id="@+id/scene_container"
+    android:animateLayoutChanges="true">
 
     <TextView
         android:id="@+id/tvScene2"
