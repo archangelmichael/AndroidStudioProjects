@@ -4,6 +4,12 @@
 
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
+    <!--Required for image and video storage-->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,8 +27,6 @@
         <activity
             android:name=".DetailedActivity"
             android:parentActivityName=".MainActivity">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DetailedActivity" />
@@ -47,6 +51,7 @@
                 <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
+        <activity android:name=".MediaActivity"></activity>
     </application>
 
 </manifest>

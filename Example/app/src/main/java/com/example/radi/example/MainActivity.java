@@ -56,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onShowMedia(View view) {
+        Intent intent = new Intent(this, MediaActivity.class);
+        startActivity(intent);
+    }
+
     // OPEN CONTACTS
     static final int PICK_CONTACT_REQUEST = 1;  // The request code
 
