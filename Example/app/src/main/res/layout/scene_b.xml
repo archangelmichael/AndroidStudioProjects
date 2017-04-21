@@ -18,4 +18,27 @@
         android:layout_height="50dp"
         android:gravity="center"
         android:text="@string/text_scene_1"/>
+
+    <Button
+        android:id="@+id/btnCrossfade"
+        android:text="@string/button_cross_fade"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:onClick="onCrossFade" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/svContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            style="?android:textAppearanceMedium"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            android:padding="20dp" />
+
+    </ScrollView>
 </LinearLayout>

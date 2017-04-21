@@ -35,6 +35,8 @@
     <string name="button_animate_scenes_transition"> Transition scenes </string>
     <string name="text_scene_1"> Scene text 1 </string>
     <string name="text_scene_2"> Scene text 2 </string>
+    <string name="button_cross_fade" > Cross fade </string>
+    <string name="lorem_ipsum"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </string>
 
     <string name="button_open_pick_contact"> Pick contact </string>
 
