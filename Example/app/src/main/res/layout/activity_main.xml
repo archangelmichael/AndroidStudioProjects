@@ -98,6 +98,12 @@
 
             <Button
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_open_graphics_activity"
+                android:onClick="onShowGraphics"/>
+
+            <Button
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:onClick="onShowPickContact"

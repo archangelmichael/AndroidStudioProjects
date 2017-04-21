@@ -13,6 +13,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.radi.example.fragments.FragmentTabsActivity;
+import com.example.radi.example.fragments.FragmentsActivity;
+import com.example.radi.example.graphics.GraphicsActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.example.app.MESSAGE";
@@ -58,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onShowMedia(View view) {
         Intent intent = new Intent(this, MediaActivity.class);
+        startActivity(intent);
+    }
+
+    public void onShowGraphics(View view) {
+        Intent intent = new Intent(this, GraphicsActivity.class);
         startActivity(intent);
     }
 

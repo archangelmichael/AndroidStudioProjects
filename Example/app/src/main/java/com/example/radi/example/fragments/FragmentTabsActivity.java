@@ -1,11 +1,11 @@
-package com.example.radi.example;
+package com.example.radi.example.fragments;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.radi.example.R;
 
 public class FragmentTabsActivity extends AppCompatActivity
         implements LeftTabFragment.OnLeftTabHitListener, RightTabFragment.OnRightTabHitListener {
@@ -16,9 +16,6 @@ public class FragmentTabsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_tabs);
-
-        String tabSelected = getString(R.string.format_tab_selected, activeTab);
-int a = 5;
         setActiveTab(activeTab);
     }
 

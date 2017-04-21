@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.example.radi.example.BlankFragment"
+        android:name="com.example.radi.example.fragments.BlankFragment"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginLeft="16dp"

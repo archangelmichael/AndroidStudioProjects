@@ -4,11 +4,16 @@
 
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
-    <!--Required for image and video storage-->
+    <!-- Required for image and video storage -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Required for graphics drawing -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -31,27 +36,34 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DetailedActivity" />
         </activity>
-        <activity android:name=".FragmentsActivity" />
-        <activity android:name=".FragmentTabsActivity" />
+        <activity android:name=".fragments.FragmentsActivity" />
+        <activity android:name=".fragments.FragmentTabsActivity" />
         <activity android:name=".SaveDataActivity" />
         <activity android:name=".ShareActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="image/*" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND_MULTIPLE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
-        <activity android:name=".MediaActivity"></activity>
+        <activity android:name=".MediaActivity" />
+        <activity android:name=".graphics.GraphicsActivity"></activity>
     </application>
 
 </manifest>

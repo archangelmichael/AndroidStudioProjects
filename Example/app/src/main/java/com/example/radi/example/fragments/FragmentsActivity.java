@@ -1,10 +1,11 @@
-package com.example.radi.example;
+package com.example.radi.example.fragments;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
+import com.example.radi.example.R;
 
 public class FragmentsActivity extends AppCompatActivity {
 

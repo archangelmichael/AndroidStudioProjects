@@ -28,6 +28,8 @@
     <string name="button_take_picture"> Take picture </string>
     <string name="button_shoot_video"> Shoot video </string>
 
+    <string name="button_open_graphics_activity"> Show graphics </string>
+
     <string name="button_open_pick_contact"> Pick contact </string>
 
     <string name="button_check_permission"> Check contacts permission </string>
