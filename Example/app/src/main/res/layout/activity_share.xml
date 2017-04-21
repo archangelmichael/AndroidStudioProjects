@@ -23,4 +23,5 @@
         android:layout_height="wrap_content"
         android:text="@string/button_share_image"
         android:onClick="onShareImage"/>
+
 </LinearLayout>

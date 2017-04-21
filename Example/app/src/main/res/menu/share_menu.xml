@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_share"
+        android:title="@string/button_share_image" />
+
+    <item android:id="@+id/menu_send"
+        android:title="@string/button_share_text" />
+
+</menu>
