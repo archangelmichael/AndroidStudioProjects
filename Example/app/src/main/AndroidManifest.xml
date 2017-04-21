@@ -65,7 +65,8 @@
         </activity>
         <activity android:name=".MediaActivity" />
         <activity android:name=".graphics.GraphicsActivity" />
-        <activity android:name=".animations.AnimationsActivity"></activity>
+        <activity android:name=".animations.AnimationsActivity" />
+        <activity android:name=".animations.SlidesActivity"></activity>
     </application>
 
 </manifest>
