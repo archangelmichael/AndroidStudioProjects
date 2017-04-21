@@ -51,13 +51,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onShowShareOptions(View view) {
-        Intent intent = new Intent(Intent.ACTION_DIAL);
-        String title = getResources().getString(R.string.text_share_actions);
-        Intent chooser = Intent.createChooser(intent, title);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(chooser);
-        }
+    public void onShowShare(View view) {
+        Intent intent = new Intent(this, ShareActivity.class);
+        startActivity(intent);
     }
 
     // OPEN CONTACTS
