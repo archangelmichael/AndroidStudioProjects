@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.radi.example.animations.AnimationsActivity;
 import com.example.radi.example.fragments.FragmentTabsActivity;
 import com.example.radi.example.fragments.FragmentsActivity;
 import com.example.radi.example.graphics.GraphicsActivity;
@@ -67,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onShowGraphics(View view) {
         Intent intent = new Intent(this, GraphicsActivity.class);
+        startActivity(intent);
+    }
+
+    public void onShowAnimations(View view) {
+        Intent intent = new Intent(this, AnimationsActivity.class);
         startActivity(intent);
     }
 

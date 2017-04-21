@@ -30,6 +30,12 @@
 
     <string name="button_open_graphics_activity"> Show graphics </string>
 
+    <string name="button_open_animations_activity"> Show animations </string>
+    <string name="text_animations_title"> Animations </string>
+    <string name="button_animate_scenes_transition"> Transition scenes </string>
+    <string name="text_scene_1"> Scene text 1 </string>
+    <string name="text_scene_2"> Scene text 2 </string>
+
     <string name="button_open_pick_contact"> Pick contact </string>
 
     <string name="button_check_permission"> Check contacts permission </string>

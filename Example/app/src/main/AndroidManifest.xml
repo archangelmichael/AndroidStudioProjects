@@ -8,6 +8,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- Required for graphics drawing -->
@@ -63,7 +64,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MediaActivity" />
-        <activity android:name=".graphics.GraphicsActivity"></activity>
+        <activity android:name=".graphics.GraphicsActivity" />
+        <activity android:name=".animations.AnimationsActivity"></activity>
     </application>
 
 </manifest>
