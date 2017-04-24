@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">MyFirstApp</string>
-    <string name="action_settings">Share</string>
-
-    <string name="dummy_text">Dummy Text</string>
-    <string name="dummy_button"> Dummy Button </string>
-    <string name="dummy_image"> Dummy Image </string>
-    <string name="dummy_hint"> Dummy Hint </string>
-</resources>
