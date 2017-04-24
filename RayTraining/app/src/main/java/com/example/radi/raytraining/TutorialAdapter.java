@@ -54,7 +54,7 @@ public class TutorialAdapter extends BaseAdapter {
         tvSubtitle.setText(tutorial.isComplete() ? "complete" : "incomplete");
 
         int rowColorId =  tutorial.isComplete() ? R.color.colorComplete : R.color.colorIncomplete;
-        rowView.setBackgroundColor(ContextCompat.getColor(mContext, rowColorId));
+        tvSubtitle.setTextColor(ContextCompat.getColor(mContext, rowColorId));
 
         return rowView;
     }
