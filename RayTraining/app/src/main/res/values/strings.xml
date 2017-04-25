@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">RayTraining</string>
+    <string name="app_name"> RayTraining </string>
+
+    <string name="app_fortune_activity"> Fortune teller </string>
+    <string name="btn_fortune_check"> What\'s my fortune </string>
 </resources>

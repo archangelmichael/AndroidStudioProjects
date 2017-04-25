@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Tutorial selectedTutorial = tutorialList.get(position);
-                onRowSelected(selectedTutorial, 0);
+                onRowSelected(selectedTutorial, position);
             }
         });
     }
@@ -41,15 +41,12 @@ public class MainActivity extends AppCompatActivity {
     public void onRowSelected(Tutorial tutorial, int position) {
         switch (position) {
             case 0:
-                Toast.makeText(this, "Fortunes are coming next", Toast.LENGTH_SHORT).show();
-                break;
-            case 1:
-//                Intent detailIntent = new Intent(context, RecipeDetailActivity.class);
-//                detailIntent.putExtra("title", selectedRecipe.title);
-//                detailIntent.putExtra("url", selectedRecipe.instructionUrl);
-//                startActivity(detailIntent);
+                Intent fortuneIntent = new Intent(this, FortuneActivity.class);
+                fortuneIntent.putExtra("title", tutorial.getTitle());
+                startActivity(fortuneIntent);
                 break;
             default:
+                Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
