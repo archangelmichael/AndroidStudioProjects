@@ -3,4 +3,10 @@
 
     <string name="app_fortune_activity"> Fortune teller </string>
     <string name="btn_fortune_check"> What\'s my fortune </string>
+
+    <string name="app_intent_take_picture_activity"> Intent take picture </string>
+    <string name="btn_add_picture_text"> Add text </string>
+
+    <string name="app_intent_add_text_to_picture_activity"> Intent add picture text </string>
+    <string name="btn_complete_picture_text"> Done </string>
 </resources>

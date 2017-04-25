@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.radi.raytraining.intents.TakePictureActivity">
+
+    <ImageButton
+        android:id="@+id/ibTakePicture"
+        android:layout_width="0dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cristal_ball"
+        app:layout_constraintHorizontal_bias="0.51"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddText"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <Button
+        android:id="@+id/btnAddText"
+        android:layout_width="222dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add_picture_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/tvPictureText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/ibTakePicture"
+        app:layout_constraintLeft_toLeftOf="@+id/ibTakePicture"
+        app:layout_constraintRight_toRightOf="@+id/ibTakePicture" />
+</android.support.constraint.ConstraintLayout>

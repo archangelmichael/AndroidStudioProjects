@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.radi.raytraining.intents.TakePictureActivity;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent fortuneIntent = new Intent(this, FortuneActivity.class);
                 fortuneIntent.putExtra("title", tutorial.getTitle());
                 startActivity(fortuneIntent);
+                break;
+            case 1:
+                Intent pictureIntent = new Intent(this, TakePictureActivity.class);
+                pictureIntent.putExtra("title", tutorial.getTitle());
+                startActivity(pictureIntent);
                 break;
             default:
                 Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
