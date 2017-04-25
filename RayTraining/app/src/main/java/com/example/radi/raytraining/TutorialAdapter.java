@@ -43,19 +43,34 @@ public class TutorialAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View rowView = mInflater.inflate(R.layout.list_item_tutorial, parent, false);
+        ViewHolder holder;
+        if(convertView == null) {
+            convertView = mInflater.inflate(R.layout.list_item_tutorial, parent, false);
 
+            holder = new ViewHolder();
+            holder.tvTitle = (TextView) convertView.findViewById(R.id.tvTutTitle);
+            holder.tvSubtitle = (TextView) convertView.findViewById(R.id.tvTutSubtitle);
+            convertView.setTag(holder);
+        }
+        else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        TextView tvTitle = holder.tvTitle;
+        TextView tvSubtitle = holder.tvSubtitle;
         Tutorial tutorial = (Tutorial) getItem(position);
 
-        TextView tvTitle = (TextView) rowView.findViewById(R.id.tvTutTitle);
         tvTitle.setText(tutorial.getTitle());
-
-        TextView tvSubtitle = (TextView) rowView.findViewById(R.id.tvTutSubtitle);
         tvSubtitle.setText(tutorial.isComplete() ? "complete" : "incomplete");
-
         int rowColorId =  tutorial.isComplete() ? R.color.colorComplete : R.color.colorIncomplete;
         tvSubtitle.setTextColor(ContextCompat.getColor(mContext, rowColorId));
 
-        return rowView;
+        return convertView;
+    }
+
+    // ViewHolder pattern
+    private static class ViewHolder {
+        public TextView tvTitle;
+        public TextView tvSubtitle;
     }
 }
