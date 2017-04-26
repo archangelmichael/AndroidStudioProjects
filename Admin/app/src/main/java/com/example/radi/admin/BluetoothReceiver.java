@@ -8,8 +8,8 @@ import android.content.SharedPreferences;
 import android.widget.Toast;
 
 public class BluetoothReceiver extends BroadcastReceiver {
-    public static final String BLUETOOTH_PREFERENCES = "bluetooth_preferences";
-    public static final String BLUETOOTH_STATE_KEY = "bluetooth_state_key";
+    private static final String BLUETOOTH_PREFERENCES = "bluetooth_preferences";
+    private static final String BLUETOOTH_STATE_KEY = "bluetooth_restricted_key";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -18,42 +18,37 @@ public class BluetoothReceiver extends BroadcastReceiver {
         if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
             final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
                     BluetoothAdapter.ERROR);
-            final boolean isBluetoothEnabled = getBluetoothState(context);
+            final boolean isBluetoothRestricted = isBluetoothRestricted(context);
             switch (state) {
                 case BluetoothAdapter.STATE_OFF:
                     break;
                 case BluetoothAdapter.STATE_TURNING_OFF:
-                    if (isBluetoothEnabled) {
-                        Toast.makeText(context, "Turning bluetooth on", Toast.LENGTH_SHORT).show();
-                        setBluetoothState(context, true);
-                    }
-
                     break;
                 case BluetoothAdapter.STATE_ON:
                     break;
                 case BluetoothAdapter.STATE_TURNING_ON:
-                    if (!isBluetoothEnabled) {
-                        Toast.makeText(context, "Turning bluetooth off", Toast.LENGTH_SHORT).show();
-                        setBluetoothState(context, false);
+                    if (isBluetoothRestricted) {
+                        Toast.makeText(context, "Bluetooth is restricted", Toast.LENGTH_SHORT).show();
+                        setBluetoothActive(false);
                     }
                     break;
             }
         }
     }
 
-    static public void setBluetoothState(Context context, boolean enabled) {
+    static public boolean isBluetoothActive(){
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        return mBluetoothAdapter != null && mBluetoothAdapter.isEnabled();
+    }
+
+    static public void setBluetoothActive(boolean active) {
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
             System.out.println("Device has no bluetooth");
             return;
         }
 
-        SharedPreferences sharedPref = context.getSharedPreferences(BLUETOOTH_PREFERENCES, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putBoolean(BLUETOOTH_STATE_KEY, enabled);
-        editor.commit();
-
-        if (enabled) {
+        if (active) {
             mBluetoothAdapter.enable();
         }
         else {
@@ -61,9 +56,15 @@ public class BluetoothReceiver extends BroadcastReceiver {
         }
     }
 
-    static private boolean getBluetoothState(Context context) {
+    static public boolean isBluetoothRestricted(Context context) {
         SharedPreferences sharedPref = context.getSharedPreferences(BLUETOOTH_PREFERENCES, Context.MODE_PRIVATE);
-        boolean enabled = sharedPref.getBoolean(BLUETOOTH_STATE_KEY, false);
-        return enabled;
+        return sharedPref.getBoolean(BLUETOOTH_STATE_KEY, false);
+    }
+
+    static public void setBluetoothRestricted(Context context, boolean restricted) {
+        SharedPreferences sharedPref = context.getSharedPreferences(BLUETOOTH_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(BLUETOOTH_STATE_KEY, restricted);
+        editor.commit();
     }
 }

@@ -8,22 +8,30 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvResult"
+        android:id="@+id/tvBluetoothState"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="" />
 
     <Button
+        android:id="@+id/btnBluetooth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onChangeBluetooth"
-        android:text="@string/btn_change_bluetooth" />
+        android:text="@string/btn_disable_bluetooth" />
+
+    <TextView
+        android:id="@+id/tvWifiState"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="" />
 
     <Button
+        android:id="@+id/btnWifi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onChangeWifi"
-        android:text="@string/btn_change_wifi" />
+        android:text="@string/btn_disable_wifi" />
 
     <Button
         android:layout_width="match_parent"

@@ -1,8 +1,17 @@
 <resources>
     <string name="app_name">Admin</string>
 
+    <string name="btn_disable_bluetooth" > Disable bluetooth </string>
+    <string name="btn_enable_bluetooth" > Enable bluetooth </string>
+    <string name="msg_bluetooth_on" > Bluetooth is on </string>
+    <string name="msg_bluetooth_off" > Bluetooth is off </string>
+    <string name="msg_bluetooth_restricted" > Bluetooth is restricted </string>
 
-    <string name="btn_change_bluetooth"> Change bluetooth state </string>
-    <string name="btn_change_wifi"> Change wifi state </string>
+    <string name="btn_disable_wifi"> Disable wifi </string>
+    <string name="btn_enable_wifi" > Enable wifi </string>
+    <string name="msg_wifi_on" > WIFI is on </string>
+    <string name="msg_wifi_off" > WIFI is off </string>
+    <string name="msg_wifi_restricted" > WIFI is restricted </string>
+
     <string name="btn_check_battery"> Check battery state </string>
 </resources>
