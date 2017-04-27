@@ -9,4 +9,7 @@
 
     <string name="app_intent_add_text_to_picture_activity"> Intent add picture text </string>
     <string name="btn_complete_picture_text"> Done </string>
+
+    <string name="app_todo_activity"> Todo </string>
+    <string name="btn_add_todo"> Add task </string>
 </resources>

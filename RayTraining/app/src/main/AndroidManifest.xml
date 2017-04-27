@@ -6,7 +6,7 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -22,19 +22,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".FortuneActivity"
             android:label="@string/app_fortune_activity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".intents.TakePictureActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_intent_take_picture_activity"/>
+        <activity
+            android:name=".intents.TakePictureActivity"
+            android:label="@string/app_intent_take_picture_activity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".intents.AddPictureTextActivity"
+        <activity
+            android:name=".intents.AddPictureTextActivity"
+            android:label="@string/app_intent_add_text_to_picture_activity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".activities.TodoActivity"
+            android:label="@string/app_todo_activity"
             android:screenOrientation="portrait"
-            android:label="@string/app_intent_add_text_to_picture_activity"/>
+            />
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.radi.raytraining.activities.TodoActivity;
 import com.example.radi.raytraining.intents.TakePictureActivity;
 
 import java.util.ArrayList;
@@ -42,15 +43,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void onRowSelected(Tutorial tutorial, int position) {
         switch (position) {
-            case 0:
+            case 0: // Fortune teller
                 Intent fortuneIntent = new Intent(this, FortuneActivity.class);
                 fortuneIntent.putExtra("title", tutorial.getTitle());
                 startActivity(fortuneIntent);
                 break;
-            case 1:
+            case 1: // Intents
                 Intent pictureIntent = new Intent(this, TakePictureActivity.class);
                 pictureIntent.putExtra("title", tutorial.getTitle());
                 startActivity(pictureIntent);
+                break;
+            case 2: // Activities
+                Intent activitiesIntent = new Intent(this, TodoActivity.class);
+                activitiesIntent.putExtra("title", tutorial.getTitle());
+                startActivity(activitiesIntent);
                 break;
             default:
                 Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();

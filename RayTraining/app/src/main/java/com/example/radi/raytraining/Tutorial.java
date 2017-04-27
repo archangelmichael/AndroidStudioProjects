@@ -27,6 +27,7 @@ public class Tutorial {
         ArrayList<Tutorial> tutorials = new ArrayList<Tutorial>();
         tutorials.add(new Tutorial("Fortunes", true));
         tutorials.add(new Tutorial("Intents", true));
+        tutorials.add(new Tutorial("Activities", false));
         tutorials.add(new Tutorial("Coming next", false));
         return tutorials;
     }
