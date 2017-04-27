@@ -1,5 +1,6 @@
 package com.example.radi.raytraining.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.radi.raytraining.R;
 
@@ -24,9 +26,12 @@ public class TodoActivity extends AppCompatActivity {
     TextView mTvTodoDate;
     Button mBtnAddTodo;
     ListView mLvTodo;
+    List<Map<String, String>> mTodoData;
 
     ArrayList<Todo> mTodoList;
     SimpleAdapter mTodoAdapter;
+
+    private static final int REQUEST_ADD_TODO = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +42,12 @@ public class TodoActivity extends AppCompatActivity {
         String now = new Date().toString();
         mTvTodoDate.setText(now);
 
-        mBtnAddTodo = (Button) findViewById(R.id.btnAddTodo);
+        mBtnAddTodo = (Button) findViewById(R.id.btnShowNewTodo);
         mBtnAddTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Add new todo
+                Intent todoIntent = new Intent(TodoActivity.this, NewTodoActivity.class);
+                startActivityForResult(todoIntent, REQUEST_ADD_TODO);
             }
         });
 
@@ -50,17 +56,17 @@ public class TodoActivity extends AppCompatActivity {
         mTodoList = new ArrayList<Todo>();
         mTodoList.add(new Todo("Intro", new Date()));
 
-        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+        mTodoData = new ArrayList<Map<String, String>>();
         for (Todo item : mTodoList) {
             Map<String, String> datum = new HashMap<String, String>(2);
             datum.put("title", item.getTitle());
             datum.put("date", item.getDate().toString());
-            data.add(datum);
+            mTodoData.add(datum);
         }
 
         mTodoAdapter = new SimpleAdapter(
                 this,
-                data,
+                mTodoData,
                 android.R.layout.simple_list_item_2,
                 new String[] {"title", "date"},
                 new int[] {android.R.id.text1, android.R.id.text2});
@@ -75,5 +81,19 @@ public class TodoActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_ADD_TODO && resultCode == RESULT_OK) {
+            Todo newTodo = (Todo) data.getSerializableExtra("Todo");
+            if (newTodo != null) {
+                mTodoList.add(newTodo);
 
+                Map<String, String> datum = new HashMap<String, String>(2);
+                datum.put("title", newTodo.getTitle());
+                datum.put("date", newTodo.getDate().toString());
+                mTodoData.add(datum);
+                mTodoAdapter.notifyDataSetChanged();
+            }
+        }
+    }
 }

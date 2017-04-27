@@ -1,8 +1,9 @@
 package com.example.radi.raytraining.activities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Todo {
+public class Todo implements Serializable {
 
     private String mTodoTitle;
     private Date mTodoDate;

@@ -12,4 +12,5 @@
 
     <string name="app_todo_activity"> Todo </string>
     <string name="btn_add_todo"> Add task </string>
+    <string name="btn_add_new_todo"> Add new task </string>
 </resources>

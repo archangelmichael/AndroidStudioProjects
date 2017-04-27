@@ -26,21 +26,19 @@
             android:name=".FortuneActivity"
             android:label="@string/app_fortune_activity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".intents.TakePictureActivity"
             android:label="@string/app_intent_take_picture_activity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".intents.AddPictureTextActivity"
             android:label="@string/app_intent_add_text_to_picture_activity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".activities.TodoActivity"
+        <activity
+            android:name=".activities.TodoActivity"
             android:label="@string/app_todo_activity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.NewTodoActivity"></activity>
     </application>
 
 </manifest>

@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp" />
 
     <Button
-        android:id="@+id/btnAddTodo"
+        android:id="@+id/btnShowNewTodo"
         android:text="@string/btn_add_todo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:id="@+id/lvTodo"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_below="@+id/btnAddTodo"
+        android:layout_below="@+id/btnShowNewTodo"
         android:layout_marginTop="10dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"

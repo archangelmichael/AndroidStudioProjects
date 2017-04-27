@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.radi.raytraining.activities.NewTodoActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:id="@+id/etTodoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:inputType="" />
+
+        <DatePicker
+            android:id="@+id/dpTodoDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TimePicker
+            android:id="@+id/tpTodoDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnAddTodo"
+            android:text="@string/btn_add_new_todo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onAddNewTodo"/>
+    </LinearLayout>
+</ScrollView>
