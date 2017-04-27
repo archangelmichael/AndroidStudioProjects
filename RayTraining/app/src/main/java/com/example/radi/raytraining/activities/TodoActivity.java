@@ -2,8 +2,10 @@ package com.example.radi.raytraining.activities;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,8 +31,8 @@ public class TodoActivity extends AppCompatActivity {
     TextView mTvTodoDate;
     Button mBtnAddTodo;
     ListView mLvTodo;
-    List<Map<String, String>> mTodoData;
 
+    List<Map<String, String>> mTodoData;
     ArrayList<Todo> mTodoList;
     SimpleAdapter mTodoAdapter;
 
@@ -86,7 +88,7 @@ public class TodoActivity extends AppCompatActivity {
         mLvTodo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-                // Complete todo
+                taskSelected(i);
             }
         });
 
@@ -129,5 +131,28 @@ public class TodoActivity extends AppCompatActivity {
 
     private String getCurrentTimeStamp() {
         return new Date().toString();
+    }
+
+    private void taskSelected(final int position) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(TodoActivity.this);
+        alertDialogBuilder.setTitle("Todo marked");
+
+        alertDialogBuilder
+                .setMessage("What do you want to do?")
+                .setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        mTodoList.remove(position);
+                        mTodoData.remove(position);
+                        mTodoAdapter.notifyDataSetChanged();
+                    }
+                })
+                .setNegativeButton("SKIP", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }
