@@ -20,8 +20,6 @@ public class NewTodoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_todo);
-
-
     }
 
     public void onAddNewTodo(View view) {
@@ -29,10 +27,17 @@ public class NewTodoActivity extends AppCompatActivity {
         Date todoDate = getFullDateFrom(
                 (DatePicker) findViewById(R.id.dpTodoDate),
                 (TimePicker) findViewById(R.id.tpTodoDate));
-        Todo newTodo = new Todo(todoTitle, todoDate);
-        Intent intent = new Intent();
-        intent.putExtra("Todo", newTodo);
-        setResult(RESULT_OK, intent);
+
+        if (!todoTitle.isEmpty()) {
+            Todo newTodo = new Todo(todoTitle, todoDate);
+            Intent intent = new Intent();
+            intent.putExtra("Todo", newTodo);
+            setResult(RESULT_OK, intent);
+        }
+        else {
+            setResult(RESULT_CANCELED);
+        }
+
         finish();
     }
 

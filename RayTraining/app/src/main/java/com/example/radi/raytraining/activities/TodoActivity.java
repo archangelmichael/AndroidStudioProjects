@@ -1,6 +1,9 @@
 package com.example.radi.raytraining.activities;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +34,8 @@ public class TodoActivity extends AppCompatActivity {
     ArrayList<Todo> mTodoList;
     SimpleAdapter mTodoAdapter;
 
+    private BroadcastReceiver mTickReceiver;
+
     private static final int REQUEST_ADD_TODO = 3;
 
     @Override
@@ -39,8 +44,14 @@ public class TodoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_todo);
 
         mTvTodoDate = (TextView) findViewById(R.id.tvTodoDate);
-        String now = new Date().toString();
-        mTvTodoDate.setText(now);
+        mTickReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (intent.getAction().equals(Intent.ACTION_TIME_TICK)) {
+                    mTvTodoDate.setText(getCurrentTimeStamp());
+                }
+            }
+        };
 
         mBtnAddTodo = (Button) findViewById(R.id.btnShowNewTodo);
         mBtnAddTodo.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +93,25 @@ public class TodoActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        mTvTodoDate.setText(getCurrentTimeStamp());
+        registerReceiver(mTickReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mTickReceiver != null) {
+            try {
+                unregisterReceiver(mTickReceiver);
+            }
+            catch (IllegalArgumentException e) {
+            }
+        }
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_ADD_TODO && resultCode == RESULT_OK) {
             Todo newTodo = (Todo) data.getSerializableExtra("Todo");
@@ -95,5 +125,9 @@ public class TodoActivity extends AppCompatActivity {
                 mTodoAdapter.notifyDataSetChanged();
             }
         }
+    }
+
+    private String getCurrentTimeStamp() {
+        return new Date().toString();
     }
 }
