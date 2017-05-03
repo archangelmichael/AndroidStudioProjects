@@ -1,10 +1,6 @@
 package com.example.radi.raytraining;
 import java.util.ArrayList;
 
-/**
- * Created by radi on 4/24/17.
- */
-
 public class Tutorial {
     private String mTitle;
     private boolean mComplete;
@@ -29,7 +25,7 @@ public class Tutorial {
         tutorials.add(new Tutorial("Intents", true));
         tutorials.add(new Tutorial("Activities", true));
         tutorials.add(new Tutorial("Fragments", true));
-        tutorials.add(new Tutorial("Recycler View", false));
+        tutorials.add(new Tutorial("Recycler View", true));
         tutorials.add(new Tutorial("Coming next", false));
         return tutorials;
     }

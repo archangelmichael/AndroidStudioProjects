@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.radi.raytraining.activities.TodoActivity;
 import com.example.radi.raytraining.fragments.RageComicsActivity;
 import com.example.radi.raytraining.intents.TakePictureActivity;
+import com.example.radi.raytraining.recyclerview.RecyclerViewActivity;
 
 import java.util.ArrayList;
 
@@ -63,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent fragmentsIntent = new Intent(this, RageComicsActivity.class);
                 fragmentsIntent.putExtra("title", tutorial.getTitle());
                 startActivity(fragmentsIntent);
+                break;
+            case 4: // Fragments
+                Intent recyclerIntent = new Intent(this, RecyclerViewActivity.class);
+                recyclerIntent.putExtra("title", tutorial.getTitle());
+                startActivity(recyclerIntent);
                 break;
             default:
                 Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();

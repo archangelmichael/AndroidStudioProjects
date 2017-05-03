@@ -17,4 +17,5 @@
     <string name="app_rage_list_fragment"> Rage list fragment </string>
     <string name="app_rage_details_fragment"> Rage details fragment </string>
 
+    <string name="api_key">3eT32yJFZ1Tx1S8XYbZ6oKBdyZFzF8CgnzRZXNjL</string>
 </resources>
