@@ -28,7 +28,7 @@ public class Tutorial {
         tutorials.add(new Tutorial("Fortunes", true));
         tutorials.add(new Tutorial("Intents", true));
         tutorials.add(new Tutorial("Activities", true));
-        tutorials.add(new Tutorial("Fragments", false));
+        tutorials.add(new Tutorial("Fragments", true));
         tutorials.add(new Tutorial("Coming next", false));
         return tutorials;
     }
