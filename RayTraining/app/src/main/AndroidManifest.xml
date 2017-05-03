@@ -39,7 +39,8 @@
             android:label="@string/app_todo_activity"
             android:screenOrientation="portrait" />
         <activity android:name=".activities.NewTodoActivity" />
-        <activity android:name=".fragments.RageComicsActivity"></activity>
+        <activity android:name=".fragments.RageComicsActivity" />
+        <activity android:name=".recyclerview.RecyclerViewActivity"></activity>
     </application>
 
 </manifest>

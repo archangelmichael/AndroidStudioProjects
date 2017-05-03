@@ -29,6 +29,7 @@ public class Tutorial {
         tutorials.add(new Tutorial("Intents", true));
         tutorials.add(new Tutorial("Activities", true));
         tutorials.add(new Tutorial("Fragments", true));
+        tutorials.add(new Tutorial("Recycler View", false));
         tutorials.add(new Tutorial("Coming next", false));
         return tutorials;
     }
