@@ -16,4 +16,5 @@
 
     <string name="app_rage_list_fragment"> Rage list fragment </string>
     <string name="app_rage_details_fragment"> Rage details fragment </string>
+
 </resources>

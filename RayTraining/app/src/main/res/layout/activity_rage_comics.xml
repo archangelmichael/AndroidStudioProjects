@@ -7,9 +7,9 @@
     tools:context="com.example.radi.raytraining.fragments.RageComicsActivity"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/details_fragment"
-        class="com.example.radi.raytraining.fragments.RageComicDetailsFragment"
+    <FrameLayout
+        android:id="@+id/rage_fragments_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>
