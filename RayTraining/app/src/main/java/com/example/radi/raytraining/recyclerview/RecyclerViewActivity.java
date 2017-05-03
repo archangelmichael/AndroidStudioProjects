@@ -2,8 +2,12 @@ package com.example.radi.raytraining.recyclerview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.radi.raytraining.R;
 
@@ -16,9 +20,18 @@ public class RecyclerViewActivity extends AppCompatActivity implements ImageRequ
     private ImageRequester mImageRequester;
 
     private RecyclerView mRecyclerView;
+
     private LinearLayoutManager mLinearLayoutManager;
+    private GridLayoutManager mGridLayoutManager;
 
     private RecyclerAdapter mAdapter;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_stars, menu);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +43,8 @@ public class RecyclerViewActivity extends AppCompatActivity implements ImageRequ
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLinearLayoutManager = new LinearLayoutManager(this);
+        mGridLayoutManager = new GridLayoutManager(this, 2);
+
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
         mAdapter = new RecyclerAdapter(mPhotosList);
@@ -48,8 +63,28 @@ public class RecyclerViewActivity extends AppCompatActivity implements ImageRequ
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_change_recycler_manager) {
+            changeLayoutManager();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    // Return current last visible item position depending on grid or list view
     private int getLastVisibleItemPosition() {
-        return mLinearLayoutManager.findLastVisibleItemPosition();
+        int itemCount;
+
+        if (mRecyclerView.getLayoutManager().equals(mLinearLayoutManager)) {
+            itemCount = mLinearLayoutManager.findLastVisibleItemPosition();
+        }
+        else {
+            itemCount = mGridLayoutManager.findLastVisibleItemPosition();
+        }
+
+        return itemCount;
     }
 
     private void setRecyclerViewScrollListener() {
@@ -63,6 +98,18 @@ public class RecyclerViewActivity extends AppCompatActivity implements ImageRequ
                 }
             }
         });
+    }
+
+    private void changeLayoutManager() {
+        if (mRecyclerView.getLayoutManager().equals(mLinearLayoutManager)) {
+            mRecyclerView.setLayoutManager(mGridLayoutManager);
+            if (mPhotosList.size() == 1) {
+                requestPhoto();
+            }
+        }
+        else {
+            mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        }
     }
 
     private void requestPhoto() {
