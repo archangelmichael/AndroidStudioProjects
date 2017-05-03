@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.radi.raytraining.activities.TodoActivity;
+import com.example.radi.raytraining.fragments.RageComicsActivity;
 import com.example.radi.raytraining.intents.TakePictureActivity;
 
 import java.util.ArrayList;
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent activitiesIntent = new Intent(this, TodoActivity.class);
                 activitiesIntent.putExtra("title", tutorial.getTitle());
                 startActivity(activitiesIntent);
+                break;
+            case 3: // Fragments
+                Intent fragmentsIntent = new Intent(this, RageComicsActivity.class);
+                fragmentsIntent.putExtra("title", tutorial.getTitle());
+                startActivity(fragmentsIntent);
                 break;
             default:
                 Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();

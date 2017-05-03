@@ -13,4 +13,7 @@
     <string name="app_todo_activity"> Todo </string>
     <string name="btn_add_todo"> Add task </string>
     <string name="btn_add_new_todo"> Add new task </string>
+
+    <string name="app_rage_list_fragment"> Rage list fragment </string>
+    <string name="app_rage_details_fragment"> Rage details fragment </string>
 </resources>
