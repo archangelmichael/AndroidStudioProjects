@@ -34,6 +34,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements ImageRequ
 
         mAdapter = new RecyclerAdapter(mPhotosList);
         mRecyclerView.setAdapter(mAdapter);
+
+        // Request new photo when scrolling
+        setRecyclerViewScrollListener();
     }
 
     @Override
@@ -43,6 +46,23 @@ public class RecyclerViewActivity extends AppCompatActivity implements ImageRequ
         if (mPhotosList.size() == 0) {
             requestPhoto();
         }
+    }
+
+    private int getLastVisibleItemPosition() {
+        return mLinearLayoutManager.findLastVisibleItemPosition();
+    }
+
+    private void setRecyclerViewScrollListener() {
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                int totalItemCount = mRecyclerView.getLayoutManager().getItemCount();
+                if (!mImageRequester.isLoadingData() && totalItemCount == getLastVisibleItemPosition() + 1) {
+                    requestPhoto();
+                }
+            }
+        });
     }
 
     private void requestPhoto() {
