@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.radi.raytraining.activities.TodoActivity;
 import com.example.radi.raytraining.animations.AnimationsActivity;
 import com.example.radi.raytraining.fragments.RageComicsActivity;
+import com.example.radi.raytraining.grids.GridActivity;
 import com.example.radi.raytraining.intents.TakePictureActivity;
 import com.example.radi.raytraining.recyclerview.RecyclerViewActivity;
 
@@ -71,7 +72,12 @@ public class MainActivity extends AppCompatActivity {
                 recyclerIntent.putExtra("title", tutorial.getTitle());
                 startActivity(recyclerIntent);
                 break;
-            case 5: // Animations
+            case 5: // Grid view
+                Intent gridIntent = new Intent(this, GridActivity.class);
+                gridIntent.putExtra("title", tutorial.getTitle());
+                startActivity(gridIntent);
+                break;
+            case 6: // Animations
                 Intent animationsIntent = new Intent(this, AnimationsActivity.class);
                 animationsIntent.putExtra("title", tutorial.getTitle());
                 startActivity(animationsIntent);

@@ -26,6 +26,7 @@ public class Tutorial {
         tutorials.add(new Tutorial("Activities", true));
         tutorials.add(new Tutorial("Fragments", true));
         tutorials.add(new Tutorial("Recycler View", true));
+        tutorials.add(new Tutorial("Grid view", true));
         tutorials.add(new Tutorial("Animations", true));
         tutorials.add(new Tutorial("Coming next", false));
         return tutorials;

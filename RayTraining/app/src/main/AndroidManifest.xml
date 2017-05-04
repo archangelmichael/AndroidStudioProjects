@@ -43,7 +43,10 @@
         <activity android:name=".fragments.RageComicsActivity" />
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".recyclerview.RecyclerPhotoActivity" />
-        <activity android:name=".animations.AnimationsActivity"></activity>
+        <activity android:name=".animations.AnimationsActivity" />
+        <activity
+            android:name=".grids.GridActivity"
+            android:label="@string/app_grid_view" />
     </application>
 
 </manifest>
