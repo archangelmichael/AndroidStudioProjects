@@ -64,6 +64,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btn_animate_fly_and_back"
                 android:onClick="onFlyBack"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_with_xml"
+                android:onClick="onXmlAnimation"/>
         </LinearLayout>
     </ScrollView>
 

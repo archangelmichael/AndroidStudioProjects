@@ -1,6 +1,7 @@
 package com.example.radi.raytraining.animations;
 
 import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -218,5 +219,18 @@ public class AnimationsActivity extends AppCompatActivity {
         animator.setRepeatCount(3);
         animator.setDuration(500L);
         animator.start();
+    }
+
+    public void onXmlAnimation(View view) {
+        AnimatorSet rocketAnimatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.jump_and_blink);
+        rocketAnimatorSet.setTarget(mRocket);
+
+        AnimatorSet dogeAnimatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.jump_and_blink);
+        dogeAnimatorSet.setTarget(mDoge);
+
+        AnimatorSet bothAnimatorSet = new AnimatorSet();
+        bothAnimatorSet.playTogether(rocketAnimatorSet, dogeAnimatorSet);
+        bothAnimatorSet.setDuration(DEFAULT_ANIMATION_DURATION);
+        bothAnimatorSet.start();
     }
 }

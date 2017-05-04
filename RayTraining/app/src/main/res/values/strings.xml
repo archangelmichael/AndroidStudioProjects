@@ -30,5 +30,6 @@
     <string name="btn_animate_get_doge" > Get Doge </string>
     <string name="btn_animate_events" > Events </string>
     <string name="btn_animate_fly_and_back" > Fly and back (AnimationOptions) </string>
+    <string name="btn_animate_with_xml" > Jump and blink </string>
     
 </resources>
