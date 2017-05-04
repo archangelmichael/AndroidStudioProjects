@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.radi.raytraining.activities.TodoActivity;
+import com.example.radi.raytraining.animations.AnimationsActivity;
 import com.example.radi.raytraining.fragments.RageComicsActivity;
 import com.example.radi.raytraining.intents.TakePictureActivity;
 import com.example.radi.raytraining.recyclerview.RecyclerViewActivity;
@@ -65,10 +66,15 @@ public class MainActivity extends AppCompatActivity {
                 fragmentsIntent.putExtra("title", tutorial.getTitle());
                 startActivity(fragmentsIntent);
                 break;
-            case 4: // Fragments
+            case 4: // Recycler view
                 Intent recyclerIntent = new Intent(this, RecyclerViewActivity.class);
                 recyclerIntent.putExtra("title", tutorial.getTitle());
                 startActivity(recyclerIntent);
+                break;
+            case 5: // Animations
+                Intent animationsIntent = new Intent(this, AnimationsActivity.class);
+                animationsIntent.putExtra("title", tutorial.getTitle());
+                startActivity(animationsIntent);
                 break;
             default:
                 Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();

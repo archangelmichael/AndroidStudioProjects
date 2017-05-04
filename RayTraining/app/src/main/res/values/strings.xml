@@ -17,6 +17,18 @@
     <string name="app_rage_list_fragment"> Rage list fragment </string>
     <string name="app_rage_details_fragment"> Rage details fragment </string>
 
-    <string name="change_layout_manager" > Change layout </string>
+    <string name="change_layout_manager"> Change layout </string>
     <string name="api_key">3eT32yJFZ1Tx1S8XYbZ6oKBdyZFzF8CgnzRZXNjL</string>
+    
+    <string name="btn_animate_launch_rocket" > Launch </string>
+    <string name="btn_animate_spin_rocket" > Spin </string>
+    <string name="btn_animate_accelerate_rocket" > Accelerate </string>
+    <string name="btn_animate_launch_rocket_2" > Launch (ObjectAnimator) </string>
+    <string name="btn_animate_background" > Background </string>
+    <string name="btn_animate_launch_and_spin" > Launch and spin (AnimationSet) </string>
+    <string name="btn_animate_launch_and_spin2" > Launch and spin (ViewPropertyAnimation)  </string>
+    <string name="btn_animate_get_doge" > Get Doge </string>
+    <string name="btn_animate_events" > Events </string>
+    <string name="btn_animate_fly_and_back" > Fly and back (AnimationOptions) </string>
+    
 </resources>

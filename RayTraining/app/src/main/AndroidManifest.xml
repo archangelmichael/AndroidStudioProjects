@@ -6,7 +6,7 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -42,7 +42,8 @@
         <activity android:name=".activities.NewTodoActivity" />
         <activity android:name=".fragments.RageComicsActivity" />
         <activity android:name=".recyclerview.RecyclerViewActivity" />
-        <activity android:name=".recyclerview.RecyclerPhotoActivity"></activity>
+        <activity android:name=".recyclerview.RecyclerPhotoActivity" />
+        <activity android:name=".animations.AnimationsActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.radi.raytraining.animations.AnimationsActivity">
+
+    <ScrollView
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:id="@+id/svAnimations">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_launch_rocket"
+                android:onClick="onLaunch"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_spin_rocket"
+                android:onClick="onSpin"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_accelerate_rocket"
+                android:onClick="onAccelerate"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_launch_rocket_2"
+                android:onClick="onLaunch2"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_background"
+                android:onClick="onBackgroundChange"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_launch_and_spin"
+                android:onClick="onLaunchAndSpin"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_launch_and_spin2"
+                android:onClick="onLaunchAndSpin2"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_get_doge"
+                android:onClick="onGetDoge"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_events"
+                android:onClick="onEvents"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_animate_fly_and_back"
+                android:onClick="onFlyBack"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_toEndOf="@+id/svAnimations"
+        android:layout_toRightOf="@+id/svAnimations"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/rocket"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:layout_gravity="bottom|center_horizontal"
+            android:src="@drawable/rocket"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/doge"
+            android:layout_marginBottom="53dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:background="@android:color/transparent"
+            android:src="@drawable/doge"
+            android:layout_gravity="bottom|center_horizontal"
+            tools:ignore="ContentDescription" />
+
+    </FrameLayout>
+</RelativeLayout>
