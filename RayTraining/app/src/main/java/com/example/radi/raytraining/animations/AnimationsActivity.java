@@ -1,5 +1,7 @@
 package com.example.radi.raytraining.animations;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -10,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
+import android.widget.Toast;
 
 import com.example.radi.raytraining.R;
 
@@ -103,22 +106,117 @@ public class AnimationsActivity extends AppCompatActivity {
     }
 
     public void onLaunchAndSpin(View view) {
+        ValueAnimator positionAnimator = ValueAnimator.ofFloat(0, -mScreenHeight);
+        positionAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float value = (float) animation.getAnimatedValue();
+                mRocket.setTranslationY(value);
+            }
+        });
 
+        ObjectAnimator rotationAnimator = ObjectAnimator.ofFloat(mRocket, "rotation", 0, 180f);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.play(positionAnimator).with(rotationAnimator);
+        animatorSet.setDuration(DEFAULT_ANIMATION_DURATION);
+        animatorSet.start();
     }
 
     public void onLaunchAndSpin2(View view) {
-
+        mRocket.animate().translationY(-mScreenHeight)
+                .rotationBy(360f)
+                .setDuration(DEFAULT_ANIMATION_DURATION)
+                .start();
     }
 
     public void onGetDoge(View view) {
+        ValueAnimator positionAnimator = ValueAnimator.ofFloat(0, -mScreenHeight);
+        positionAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float value = (float) animation.getAnimatedValue();
+                // You can use value to set properties of many objects
+                mRocket.setTranslationY(value);
+                mDoge.setTranslationY(value);
+            }
+        });
 
+        ValueAnimator rotationAnimator = ValueAnimator.ofFloat(0, 360);
+        rotationAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float value = (float) animation.getAnimatedValue();
+                mDoge.setRotation(value);
+            }
+        });
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.play(positionAnimator).with(rotationAnimator);
+        animatorSet.setDuration(DEFAULT_ANIMATION_DURATION);
+        animatorSet.start();
     }
 
     public void onEvents(View view) {
+        ValueAnimator animator = ValueAnimator.ofFloat(0, -mScreenHeight);
 
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float value = (float) animation.getAnimatedValue();
+                mRocket.setTranslationY(value);
+                mDoge.setTranslationY(value);
+            }
+        });
+
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Doge took off",
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Doge is on the moon",
+                        Toast.LENGTH_SHORT)
+                        .show();
+                finish();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+
+        animator.setDuration(5000L);
+        animator.start();
     }
 
     public void onFlyBack(View view) {
+        ValueAnimator animator = ValueAnimator.ofFloat(0, -mScreenHeight);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float value = (float) animation.getAnimatedValue();
+                mRocket.setTranslationY(value);
+                mDoge.setTranslationY(value);
+            }
+        });
 
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.setRepeatCount(3);
+        animator.setDuration(500L);
+        animator.start();
     }
 }
