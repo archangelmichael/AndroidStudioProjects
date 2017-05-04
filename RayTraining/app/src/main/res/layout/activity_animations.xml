@@ -71,29 +71,29 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/svAnimations"
         android:layout_toRightOf="@+id/svAnimations"
-        android:layout_alignParentTop="true">
+        android:background="@color/colorPrimaryDark">
 
         <ImageView
             android:id="@+id/rocket"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@android:color/transparent"
             android:layout_gravity="bottom|center_horizontal"
+            android:background="@android:color/transparent"
             android:src="@drawable/rocket"
             tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/doge"
-            android:layout_marginBottom="53dp"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:scaleType="centerCrop"
-            android:background="@android:color/transparent"
-            android:src="@drawable/doge"
             android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="53dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/doge"
             tools:ignore="ContentDescription" />
 
     </FrameLayout>
