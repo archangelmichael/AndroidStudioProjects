@@ -1,5 +1,6 @@
 package com.example.radi.teleriktraining;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,9 +15,11 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.radi.teleriktraining.adapters.SuperheroActivity;
+
 public class MainActivity extends AppCompatActivity {
 
-    String[] mTelerikTutorials = { "Basics" };
+    String[] mTelerikTutorials = { "Superhero Adapter" };
     ListView mLvTelerik;
     ArrayAdapter<String> mAdapter;
 
@@ -32,10 +35,13 @@ public class MainActivity extends AppCompatActivity {
         mLvTelerik.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        mTelerikTutorials[position],
-                        Toast.LENGTH_SHORT ).show();
+                switch (position) {
+                    case 0:
+                        onAdaptersTraining();
+                        break;
+                    default:
+                        break;
+                }
             }
         });
 
@@ -55,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
                         }).show();
             }
         });
+    }
+
+    private void onAdaptersTraining() {
+        Intent adaptersIntent = new Intent(this, SuperheroActivity.class);
+        this.startActivity(adaptersIntent);
     }
 
     @Override
