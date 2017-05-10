@@ -7,14 +7,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    String[] mTelerikTutorials = { "Basics" };
+    ListView mLvTelerik;
+    ArrayAdapter<String> mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mLvTelerik = (ListView) findViewById(R.id.lv_telerik);
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mTelerikTutorials);
+        mLvTelerik.setAdapter(mAdapter);
+
+        mLvTelerik.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        mTelerikTutorials[position],
+                        Toast.LENGTH_SHORT ).show();
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
