@@ -16,21 +16,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.BasicActivity"
             android:label="@string/title_activity_basic"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
-            android:name=".activity.ServiceActivity"
+            android:name=".service.ServiceActivity"
             android:label="@string/title_activity_service" />
+        <service android:name=".service.BasicService" />
 
         <receiver android:name=".receiver.BasicReceiver">
             <intent-filter>
-                <action android:name="com.example.radi.tutorialspointtraining.CUSTOM_BROADCAST_INTENT" >
-                </action>
+                <action android:name="com.example.radi.tutorialspointtraining.CUSTOM_BROADCAST_INTENT" />
             </intent-filter>
         </receiver>
-        <service android:name=".service.BasicService" />
+
+        <activity
+            android:name=".content_provider.ContentProviderActivity"
+            android:label="@string/title_activity_content_provider" />
+        
+        <provider
+            android:authorities="com.example.radi.tutorialspointtraining.content_provider.StudentProvider"
+            android:name=".content_provider.StudentProvider" />
     </application>
 
 </manifest>

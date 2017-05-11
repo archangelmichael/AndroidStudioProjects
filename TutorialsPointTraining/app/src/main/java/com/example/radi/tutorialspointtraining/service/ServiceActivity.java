@@ -1,4 +1,4 @@
-package com.example.radi.tutorialspointtraining.activity;
+package com.example.radi.tutorialspointtraining.service;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

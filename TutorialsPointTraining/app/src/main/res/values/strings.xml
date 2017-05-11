@@ -3,7 +3,14 @@
     <string name="app_content"> List of topics </string>
     <string name="title_activity_basic">Basic Activity</string>
     <string name="title_activity_service"> Services </string>
+    <string name="title_activity_content_provider"> Content provider </string>
 
-    <string name="button_start_service" > Start service </string>
-    <string name="button_stop_service" > Stop service </string>
+    <string name="button_start_service"> Start service </string>
+    <string name="button_stop_service"> Stop service </string>
+
+    <string name="placeholder_name"> Name </string>
+    <string name="placeholder_grade"> Grade </string>
+
+    <string name="button_add_student"> Add student </string>
+    <string name="button_get_students"> Get students </string>
 </resources>

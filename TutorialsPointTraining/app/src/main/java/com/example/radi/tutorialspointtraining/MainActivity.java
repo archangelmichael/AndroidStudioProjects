@@ -9,14 +9,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.radi.tutorialspointtraining.activity.BasicActivity;
-import com.example.radi.tutorialspointtraining.activity.ServiceActivity;
+import com.example.radi.tutorialspointtraining.content_provider.ContentProviderActivity;
+import com.example.radi.tutorialspointtraining.service.ServiceActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private String[] mTopics = {
             "Activity lifecycle",
             "Basic service",
-            "Basic broadcast"
+            "Basic broadcast",
+            "Content provider"
     };
 
     ListView mTopicsListView;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mTopicsListView = (ListView) findViewById(R.id.lv_topics);
-        mTopicsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mTopics);
+        mTopicsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mTopics);
         mTopicsListView.setAdapter(mTopicsAdapter);
         mTopicsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -50,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 2:
                 onBasicBroadcastSelected();
+                break;
+            case 3:
+                Intent contentProviderActivityIntent = new Intent(this, ContentProviderActivity.class);
+                startActivity(contentProviderActivityIntent);
                 break;
             default:
                 break;

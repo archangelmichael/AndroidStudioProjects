@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.radi.tutorialspointtraining.activity.ServiceActivity">
+    tools:context="com.example.radi.tutorialspointtraining.service.ServiceActivity">
 
     <Button
         android:id="@+id/btn_start_service"
