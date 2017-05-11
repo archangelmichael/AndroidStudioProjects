@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">TutorialsPoint Training</string>
     <string name="app_content"> List of topics </string>
-    <string name="title_activity_basic">BasicActivity</string>
+    <string name="title_activity_basic">Basic Activity</string>
+    <string name="title_activity_service"> Services </string>
+
+    <string name="button_start_service" > Start service </string>
+    <string name="button_stop_service" > Stop service </string>
 </resources>

@@ -9,11 +9,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.radi.tutorialspointtraining.activity.BasicActivity;
+import com.example.radi.tutorialspointtraining.activity.ServiceActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private String[] mTopics = {
-            "Activity Lifecycle"
+            "Activity Lifecycle",
+            "Services"
     };
 
     ListView mTopicsListView;
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(basicActivityIntent);
                 break;
             case 1:
+                Intent serviceActivityIntent = new Intent(this, ServiceActivity.class);
+                startActivity(serviceActivityIntent);
                 break;
             default:
                 break;
