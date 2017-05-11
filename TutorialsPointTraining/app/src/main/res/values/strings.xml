@@ -4,6 +4,7 @@
     <string name="title_activity_basic">Basic Activity</string>
     <string name="title_activity_service"> Services </string>
     <string name="title_activity_content_provider"> Content provider </string>
+    <string name="title_activity_intent"> Intents </string>
 
     <string name="button_start_service"> Start service </string>
     <string name="button_stop_service"> Stop service </string>
@@ -13,4 +14,9 @@
 
     <string name="button_add_student"> Add student </string>
     <string name="button_get_students"> Get students </string>
+
+    <string name="button_open_website"> Open website </string>
+    <string name="button_dial_phone_number"> Dial phone number </string>
+    <string name="button_send_email"> Send email </string>
+    <string name="button_browser_search"> Browser search </string>
 </resources>

@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.example.radi.tutorialspointtraining.activity.BasicActivity;
 import com.example.radi.tutorialspointtraining.content_provider.ContentProviderActivity;
+import com.example.radi.tutorialspointtraining.intent.IntentActivity;
 import com.example.radi.tutorialspointtraining.service.ServiceActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
             "Activity lifecycle",
             "Basic service",
             "Basic broadcast",
-            "Content provider"
+            "Content provider",
+            "Basic intent"
     };
 
     ListView mTopicsListView;
@@ -56,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
             case 3:
                 Intent contentProviderActivityIntent = new Intent(this, ContentProviderActivity.class);
                 startActivity(contentProviderActivityIntent);
+                break;
+            case 4:
+                Intent intentActivityIntent = new Intent(this, IntentActivity.class);
+                startActivity(intentActivityIntent);
                 break;
             default:
                 break;
