@@ -14,8 +14,9 @@ import com.example.radi.tutorialspointtraining.activity.ServiceActivity;
 public class MainActivity extends AppCompatActivity {
 
     private String[] mTopics = {
-            "Activity Lifecycle",
-            "Services"
+            "Activity lifecycle",
+            "Basic service",
+            "Basic broadcast"
     };
 
     ListView mTopicsListView;
@@ -47,8 +48,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent serviceActivityIntent = new Intent(this, ServiceActivity.class);
                 startActivity(serviceActivityIntent);
                 break;
+            case 2:
+                onBasicBroadcastSelected();
+                break;
             default:
                 break;
         }
+    }
+
+    private void onBasicBroadcastSelected() {
+        Intent intent = new Intent();
+        intent.setAction("com.example.radi.tutorialspointtraining.CUSTOM_BROADCAST_INTENT");
+        sendBroadcast(intent);
     }
 }

@@ -1,0 +1,17 @@
+package com.example.radi.tutorialspointtraining.receiver;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
+/**
+ * Created by radi on 5/11/17.
+ */
+
+public class BasicReceiver extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        Toast.makeText(context, "Intent Detected.", Toast.LENGTH_SHORT).show();
+    }
+}
