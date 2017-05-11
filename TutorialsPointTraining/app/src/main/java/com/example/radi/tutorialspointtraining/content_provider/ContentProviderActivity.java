@@ -52,16 +52,20 @@ public class ContentProviderActivity extends AppCompatActivity {
         String URL = "content://com.example.radi.tutorialspointtraining.content_provider.StudentProvider";
 
         Uri students = Uri.parse(URL);
-        Cursor c = managedQuery(students, null, null, null, "name");
-
-        if (c.moveToFirst()) {
-            do{
-                Toast.makeText(this,
-                        c.getString(c.getColumnIndex(StudentProvider._ID)) +
-                                ", " +  c.getString(c.getColumnIndex( StudentProvider.NAME)) +
-                                ", " + c.getString(c.getColumnIndex( StudentProvider.GRADE)),
-                        Toast.LENGTH_SHORT).show();
-            } while (c.moveToNext());
+        Cursor studentsCursor = getContentResolver().query(students, null, null, null, "_id");
+        if (studentsCursor.moveToFirst()) {
+            do {
+                String studentID = studentsCursor.getString(studentsCursor.getColumnIndex(StudentProvider._ID));
+                String studentName = studentsCursor.getString(studentsCursor.getColumnIndex( StudentProvider.NAME));
+                String studentGrade = studentsCursor.getString(studentsCursor.getColumnIndex( StudentProvider.GRADE));
+                Toast.makeText(
+                        this,
+                        String.format("%s %s %s", studentID, studentName, studentGrade),
+                        Toast.LENGTH_SHORT)
+                        .show();
+            } while (studentsCursor.moveToNext());
         }
+
+        studentsCursor.close();
     }
 }
