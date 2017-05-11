@@ -12,7 +12,7 @@ import com.example.radi.tutorialspointtraining.R;
 
 public class IntentActivity extends AppCompatActivity {
 
-    Button btnOpenWebsite, btnDialPhone, btnSendEmail, btnSearchInBrowser;
+    Button btnOpenWebsite, btnDialPhone, btnSendEmail, btnSearchInBrowser, btnSendIntentFilter, btnOpenIntentFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,5 +69,25 @@ public class IntentActivity extends AppCompatActivity {
             }
         });
 
+        btnSendIntentFilter = (Button) findViewById(R.id.btn_send_intent_filter);
+        btnSendIntentFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(
+                        "com.example.radi.tutorialspointtraining.LAUNCH",
+                        Uri.parse("http://www.example.com"));
+                startActivity(i);
+            }
+        });
+
+        btnOpenIntentFilter = (Button) findViewById(R.id.btn_open_intent_filter);
+        btnOpenIntentFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("http://www.example.com"));
+                startActivity(i);
+            }
+        });
     }
 }

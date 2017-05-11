@@ -43,6 +43,16 @@
         <activity
             android:name=".intent.IntentActivity"
             android:label="@string/title_activity_intent" />
+        <activity
+            android:name=".intent.IntentFilterActivity"
+            android:label="@string/title_activity_intent_filter">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.example.radi.tutorialspointtraining.LAUNCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="http" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
