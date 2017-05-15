@@ -8,18 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.radi.teleriktraining.adapters.SuperheroActivity;
+import com.example.radi.teleriktraining.navigation.NavigationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    String[] mTelerikTutorials = { "Superhero Adapter" };
+    String[] mTelerikTutorials = { "Superhero Adapter", "Navigation" };
     ListView mLvTelerik;
     ArrayAdapter<String> mAdapter;
 
@@ -38,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         onAdaptersTraining();
+                        break;
+                    case 1:
+                        onNavigationTraining();
                         break;
                     default:
                         break;
@@ -66,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
     private void onAdaptersTraining() {
         Intent adaptersIntent = new Intent(this, SuperheroActivity.class);
         this.startActivity(adaptersIntent);
+    }
+
+    private void onNavigationTraining() {
+        Intent navigationIntent = new Intent(this, NavigationActivity.class);
+        this.startActivity(navigationIntent);
     }
 
     @Override

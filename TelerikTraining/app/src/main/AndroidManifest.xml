@@ -19,10 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".adapters.SuperheroActivity"
+        <activity
+            android:name=".adapters.SuperheroActivity"
             android:label="@string/activity_adapters_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".navigation.NavigationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".navigation.BookDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
